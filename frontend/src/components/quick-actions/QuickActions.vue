@@ -610,7 +610,10 @@ function onEnter(event: KeyboardEvent) {
 }
 
 async function doCmd() {
-	if (results.value.length === 1 && results.value[0].items.length === 1) {
+	// The single-result shortcut only applies to plain search results. Once a
+	// command is selected its query is the payload (e.g. the new task's title),
+	// so an equally named project must not swallow the Enter.
+	if (selectedCmd.value === null && results.value.length === 1 && results.value[0].items.length === 1) {
 		const result = results.value[0]
 		doAction(result.type, result.items[0])
 		openTaskAfterCreate = false

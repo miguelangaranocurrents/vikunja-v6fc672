@@ -354,6 +354,12 @@ const DRAG_OPTIONS = {
 	dragClass: 'task-dragging',
 	delayOnTouchOnly: true,
 	delay: 1000,
+	// The board has to start scrolling while the pointer is still comfortably
+	// inside it, otherwise a card can never be dragged to a bucket that is off
+	// screen (sortable only scrolls within `scrollSensitivity` of an edge).
+	scroll: true,
+	scrollSensitivity: 80,
+	scrollSpeed: 30,
 } as const
 
 const MIN_SCROLL_HEIGHT_PERCENT = 0.25

@@ -1,0 +1,8 @@
+Received string:    "start·····
+this···
+is···
+a···
+list·
+end"
+
+Call Log:
